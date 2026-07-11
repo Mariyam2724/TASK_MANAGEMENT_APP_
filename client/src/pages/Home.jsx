@@ -6,6 +6,8 @@ import TaskList from "../components/TaskList";
 
 function Home() {
   const [tasks, setTasks] = useState([]);
+  const [editingTask, setEditingTask] = useState(null);
+
 
   const fetchTasks = async () => {
     try {
@@ -20,15 +22,24 @@ function Home() {
     fetchTasks();
   }, []);
 
+  useEffect(() => {
+  console.log(editingTask);
+}, [editingTask]);
+
   return (
     <div className="container">
       <h1>My Tasks</h1>
 
       <p>Manage your daily tasks efficiently.</p>
 
-      <TaskForm onTaskAdded={fetchTasks} />
+      <TaskForm
+  editingTask={editingTask}
+  setEditingTask={setEditingTask}
+  onTaskAdded={fetchTasks}
+/>
 
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks}
+      onEdit={setEditingTask} />
     </div>
   );
 }

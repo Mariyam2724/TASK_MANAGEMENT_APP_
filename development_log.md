@@ -117,3 +117,12 @@ Completed:
 - Implemented parent-child communication using React props.
 - Refreshed task list automatically after adding a new task.
 - Improved user experience by eliminating manual page refresh.
+
+## Stage 15 – Edit Task
+
+Completed:
+- Implemented Edit Task functionality.
+- Pre-filled the form with existing task details.
+- Updated tasks using the backend API.
+- Automatically refreshed the task list after updates.
+- Reset the form after a successful update.

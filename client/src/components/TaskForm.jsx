@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import API from "../services/api";
 
-function TaskForm({ onTaskAdded }) {
+
+function TaskForm({ onTaskAdded, editingTask, setEditingTask })  {
   const [task, setTask] = useState({
     title: "",
     description: "",
     status: "Pending",
     dueDate: "",
   });
+
+  useEffect(() => {
+  if (editingTask) {
+    setTask({
+      title: editingTask.title,
+      description: editingTask.description,
+      status: editingTask.status,
+      dueDate: editingTask.dueDate
+        ? editingTask.dueDate.substring(0, 10)
+        : "",
+    });
+  }
+}, [editingTask]);
 
   const handleChange = (e) => {
     setTask({
@@ -16,28 +30,34 @@ function TaskForm({ onTaskAdded }) {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
+  try {
+    if (editingTask) {
+      // Update existing task
+      await API.put(`/tasks/${editingTask._id}`, task);
+      alert("Task Updated Successfully!");
+    } else {
+      // Add new task
       await API.post("/tasks", task);
-
-      onTaskAdded();
-
       alert("Task Added Successfully!");
-
-      setTask({
-        title: "",
-        description: "",
-        status: "Pending",
-        dueDate: "",
-      });
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong.");
     }
-  };
 
+    onTaskAdded();
+
+    setTask({
+      title: "",
+      description: "",
+      status: "Pending",
+      dueDate: "",
+    });
+setEditingTask(null);
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong.");
+  }
+};
   return (
     <div className="task-form">
       <h2>Add New Task</h2>
@@ -79,8 +99,8 @@ function TaskForm({ onTaskAdded }) {
         />
 
         <button type="submit">
-          Add Task
-        </button>
+  {editingTask ? "Update Task" : "Add Task"}
+</button>
 
       </form>
     </div>

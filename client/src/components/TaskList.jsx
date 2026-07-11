@@ -1,6 +1,6 @@
 import TaskCard from "./TaskCard";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, onEdit }) {
   if (tasks.length === 0) {
     return <h3>No Tasks Available</h3>;
   }
@@ -11,6 +11,7 @@ function TaskList({ tasks }) {
         <TaskCard
           key={task._id}
           task={task}
+          onEdit={onEdit}
         />
       ))}
     </div>
