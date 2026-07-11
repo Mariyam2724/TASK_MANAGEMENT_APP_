@@ -28,10 +28,10 @@ Challenges:
 
 ## Day 1
 
-### Stage 3
+## Stage 3 - Backend Setup
 
-- Created Express backend.
-- Installed Express, CORS, Dotenv and Mongoose.
-- Configured project structure.
-- Created initial Express server.
-- Tested backend locally.
+- Created the Express backend.
+- Installed Express, CORS, Dotenv, Mongoose, and Nodemon.
+- Created the backend folder structure.
+- Configured the initial Express server.
+- Tested the backend locally.
