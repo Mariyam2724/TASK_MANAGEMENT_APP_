@@ -70,3 +70,50 @@ Challenges:
 - Successfully tested PUT API.
 - Successfully tested DELETE API.
 - Verified CRUD operations using Postman.
+
+
+## Stage 9 – Frontend Cleanup
+
+Completed:
+- Cleaned the default Vite React project.
+- Removed unnecessary demo files.
+- Added a basic application layout.
+- Created a scalable folder structure for the frontend.
+
+## Stage 10 – Basic Frontend Layout
+
+Completed:
+- Created reusable Navbar component.
+- Created Home page component.
+- Added global stylesheet.
+- Connected components through App.jsx.
+
+## Stage 11 – Task Form UI
+
+Completed:
+- Created reusable TaskForm component.
+- Added form fields for task details.
+- Styled the task creation form.
+
+## Stage 12 – Frontend Backend Integration (Add Task)
+
+Completed:
+- Configured Axios for API communication.
+- Connected the React form to the Express backend.
+- Successfully created new tasks from the frontend.
+- Verified task storage in MongoDB Atlas.
+
+## Stage 13 – Task Display
+
+Completed:
+- Created TaskCard component.
+- Created TaskList component.
+- Displayed tasks fetched from MongoDB.
+- Verified frontend and backend integration.
+
+## Stage 14 – Automatic Task Refresh
+
+Completed:
+- Implemented parent-child communication using React props.
+- Refreshed task list automatically after adding a new task.
+- Improved user experience by eliminating manual page refresh.

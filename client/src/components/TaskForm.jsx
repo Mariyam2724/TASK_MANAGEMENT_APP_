@@ -1,7 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
 
-function TaskForm() {
+function TaskForm({ onTaskAdded }) {
   const [task, setTask] = useState({
     title: "",
     description: "",
@@ -21,6 +21,8 @@ function TaskForm() {
 
     try {
       await API.post("/tasks", task);
+
+      onTaskAdded();
 
       alert("Task Added Successfully!");
 
