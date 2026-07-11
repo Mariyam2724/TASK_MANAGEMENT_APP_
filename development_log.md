@@ -148,3 +148,10 @@ Completed:
 - Added search functionality for tasks.
 - Implemented real-time filtering by task title.
 - Combined search with status filtering for improved usability.
+
+## Stage 19 – Task Dashboard
+
+Completed:
+- Added a dashboard displaying task statistics.
+- Displayed Total, Pending, In Progress, and Completed task counts.
+- Dashboard updates automatically whenever tasks are added, edited, or deleted.
