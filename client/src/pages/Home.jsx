@@ -7,7 +7,9 @@ import TaskList from "../components/TaskList";
 function Home() {
   const [tasks, setTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
+const [filterStatus, setFilterStatus] = useState("All");
 
+const [searchTerm, setSearchTerm] = useState("");
 
   const fetchTasks = async () => {
     try {
@@ -23,7 +25,10 @@ function Home() {
     "Are you sure you want to delete this task?"
   );
 
-  if (!confirmDelete) return;
+  if (!confirmDelete) 
+
+    
+    return;
 
   try {
     await API.delete(`/tasks/${id}`);
@@ -42,6 +47,16 @@ function Home() {
   console.log(editingTask);
 }, [editingTask]);
 
+const filteredTasks = tasks.filter((task) => {
+  const matchesStatus =
+    filterStatus === "All" || task.status === filterStatus;
+
+  const matchesSearch = task.title
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+
+  return matchesStatus && matchesSearch;
+});
   return (
     <div className="container">
       <h1>My Tasks</h1>
@@ -53,8 +68,28 @@ function Home() {
   setEditingTask={setEditingTask}
   onTaskAdded={fetchTasks}
 />
+<div className="search-container">
+  <input
+    type="text"
+    placeholder="Search tasks..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+</div>
+<div className="filter-container">
+  <label>Filter by Status: </label>
 
-      <TaskList tasks={tasks}
+  <select
+    value={filterStatus}
+    onChange={(e) => setFilterStatus(e.target.value)}
+  >
+    <option value="All">All</option>
+    <option value="Pending">Pending</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Completed">Completed</option>
+  </select>
+</div>
+      <TaskList tasks={filteredTasks}
       onEdit={setEditingTask}
       onDelete={deleteTask} />
     </div>

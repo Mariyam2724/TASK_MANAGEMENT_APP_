@@ -12,10 +12,15 @@ A MERN Stack Task Management Application.
 ## Features
 
 - Add Task
+- View All Tasks
 - Edit Task
 - Delete Task
-- Complete Task
-- Filter Tasks
+- Filter Tasks by Status
+- Update Task Status (Pending, In Progress, Completed)
+- Set Due Date
+- Automatic UI Refresh After Add/Edit/Delete
+- MongoDB Database Integration
+- Responsive User Interface
 
 ## Author
 

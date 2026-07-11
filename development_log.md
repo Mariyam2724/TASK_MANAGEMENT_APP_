@@ -134,3 +134,17 @@ Completed:
 - Added delete confirmation dialog.
 - Removed tasks from MongoDB.
 - Automatically refreshed the task list after deletion.
+
+## Stage 17 – Task Filtering
+
+Completed:
+- Added task filtering by status.
+- Implemented dynamic filtering using React state.
+- Allowed users to switch between All, Pending, In Progress, and Completed tasks.
+
+## Stage 18 – Task Search
+
+Completed:
+- Added search functionality for tasks.
+- Implemented real-time filtering by task title.
+- Combined search with status filtering for improved usability.
