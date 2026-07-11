@@ -1,4 +1,4 @@
-function TaskCard({ task, onEdit }) {
+function TaskCard({ task, onEdit, onDelete }) {
   return (
     <div className="task-card">
       <h3>{task.title}</h3>
@@ -16,9 +16,12 @@ function TaskCard({ task, onEdit }) {
 
       <div className="task-buttons">
         <button onClick={() => onEdit(task)}>
-    Edit
-</button>
-        <button>Delete</button>
+          Edit
+        </button>
+
+        <button onClick={() => onDelete(task._id)}>
+          Delete
+        </button>
       </div>
     </div>
   );

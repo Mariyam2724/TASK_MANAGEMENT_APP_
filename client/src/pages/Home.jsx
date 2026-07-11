@@ -18,6 +18,22 @@ function Home() {
     }
   };
 
+  const deleteTask = async (id) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this task?"
+  );
+
+  if (!confirmDelete) return;
+
+  try {
+    await API.delete(`/tasks/${id}`);
+    fetchTasks();
+  } catch (error) {
+    console.error(error);
+    alert("Failed to delete task.");
+  }
+};
+
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -39,7 +55,8 @@ function Home() {
 />
 
       <TaskList tasks={tasks}
-      onEdit={setEditingTask} />
+      onEdit={setEditingTask}
+      onDelete={deleteTask} />
     </div>
   );
 }

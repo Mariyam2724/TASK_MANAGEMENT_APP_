@@ -126,3 +126,11 @@ Completed:
 - Updated tasks using the backend API.
 - Automatically refreshed the task list after updates.
 - Reset the form after a successful update.
+
+## Stage 16 – Delete Task
+
+Completed:
+- Implemented Delete Task functionality.
+- Added delete confirmation dialog.
+- Removed tasks from MongoDB.
+- Automatically refreshed the task list after deletion.
