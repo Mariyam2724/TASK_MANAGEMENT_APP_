@@ -1,3 +1,5 @@
+import { FaEdit, FaTrash, FaCalendarAlt } from "react-icons/fa";
+
 function TaskCard({ task, onEdit, onDelete }) {
   return (
     <div className="task-card">
@@ -6,21 +8,25 @@ function TaskCard({ task, onEdit, onDelete }) {
       <p>{task.description}</p>
 
       <p>
-        <strong>Status:</strong> {task.status}
+        <strong>Status:</strong>{" "}
+        <span className={`status ${task.status.replace(/\s/g, "")}`}>
+          {task.status}
+        </span>
       </p>
 
       <p>
+        <FaCalendarAlt style={{ marginRight: "8px", color: "#2563eb" }} />
         <strong>Due Date:</strong>{" "}
         {new Date(task.dueDate).toLocaleDateString()}
       </p>
 
       <div className="task-buttons">
-        <button onClick={() => onEdit(task)}>
-          Edit
+        <button className="edit-btn" onClick={() => onEdit(task)}>
+          <FaEdit /> Edit
         </button>
 
-        <button onClick={() => onDelete(task._id)}>
-          Delete
+        <button className="delete-btn" onClick={() => onDelete(task._id)}>
+          <FaTrash /> Delete
         </button>
       </div>
     </div>

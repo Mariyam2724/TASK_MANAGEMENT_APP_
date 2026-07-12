@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import API from "../services/api";
+import { toast } from "react-toastify";
 
 
 function TaskForm({ onTaskAdded, editingTask, setEditingTask })  {
@@ -9,6 +10,7 @@ function TaskForm({ onTaskAdded, editingTask, setEditingTask })  {
     status: "Pending",
     dueDate: "",
   });
+const formRef = useRef(null);
 
   useEffect(() => {
   if (editingTask) {
@@ -20,6 +22,13 @@ function TaskForm({ onTaskAdded, editingTask, setEditingTask })  {
         ? editingTask.dueDate.substring(0, 10)
         : "",
     });
+
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
   }
 }, [editingTask]);
 
@@ -37,11 +46,11 @@ function TaskForm({ onTaskAdded, editingTask, setEditingTask })  {
     if (editingTask) {
       // Update existing task
       await API.put(`/tasks/${editingTask._id}`, task);
-      alert("Task Updated Successfully!");
+      toast.success("Task updated successfully!");
     } else {
       // Add new task
       await API.post("/tasks", task);
-      alert("Task Added Successfully!");
+      toast.success("Task added successfully!");
     }
 
     onTaskAdded();
@@ -55,12 +64,12 @@ function TaskForm({ onTaskAdded, editingTask, setEditingTask })  {
 setEditingTask(null);
   } catch (error) {
     console.error(error);
-    alert("Something went wrong.");
+    toast.error("Something went wrong!");
   }
 };
   return (
-    <div className="task-form">
-      <h2>Add New Task</h2>
+    <div className="task-form" ref={formRef}>
+      <h2>{editingTask ? "Edit Task" : "Add New Task"}</h2>
 
       <form onSubmit={handleSubmit}>
 
