@@ -43,6 +43,21 @@ function Home() {
     }
   };
 
+  const markAsCompleted = async (task) => {
+  try {
+    await API.put(`/tasks/${task._id}`, {
+      ...task,
+      status: "Completed",
+    });
+
+    fetchTasks();
+
+    toast.success("Task marked as completed!");
+  } catch (error) {
+    console.error(error);
+    toast.error("Failed to update task.");
+  }
+};
   // Load Tasks
   useEffect(() => {
     fetchTasks();
@@ -145,6 +160,7 @@ function Home() {
           tasks={filteredTasks}
           onEdit={setEditingTask}
           onDelete={deleteTask}
+          onComplete={markAsCompleted}
         />
       </div>
     </>

@@ -397,6 +397,24 @@ select:focus{
     transition:.3s;
 }
 
+.complete-btn{
+    background:#16a34a;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.complete-btn:hover{
+    background:#15803d;
+}
+
 .edit-btn{
     background:#2563eb;
 }
@@ -474,3 +492,5 @@ select:focus{
   border-bottom: 3px solid #ffd43b;
   padding-bottom: 4px;
 }
+
+

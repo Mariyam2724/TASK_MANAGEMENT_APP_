@@ -63,7 +63,7 @@ Users can:
 - Search Task
 - Filter Task
 - Due Date
-- Priority
+
 
 ---
 
