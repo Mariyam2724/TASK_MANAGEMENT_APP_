@@ -14,10 +14,9 @@ Users can:
 - Edit Tasks
 - Delete Tasks
 - Mark Tasks as Completed
-- View All Tasks
-- Filter Completed and Pending Tasks
+- Search All Tasks
+- Filter Tasks based on statuss
 
----
 
 # Technology Stack
 
@@ -46,7 +45,6 @@ Users can:
 
 - ChatGPT
 
----
 
 # Features
 
@@ -56,16 +54,17 @@ Users can:
 - Edit Task
 - Delete Task
 - Mark Complete
-- View Tasks
+
 
 ### Optional Features
 
 - Search Task
 - Filter Task
 - Due Date
+- Dahboard Summary
 
 
----
+
 
 # Application Architecture
 
@@ -79,7 +78,7 @@ Express REST API
 
 MongoDB Database
 
----
+
 
 # Database Design
 
@@ -92,7 +91,7 @@ Fields
 - title
 - description
 - completed
-- createdAt
+
 
 Example
 
@@ -102,7 +101,6 @@ Example
 "completed":false
 }
 
----
 
 # Development Milestones
 
